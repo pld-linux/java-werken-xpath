@@ -7,7 +7,7 @@
 
 %include	/usr/lib/rpm/macros.java
 
-%define		srcname		weken-xpath
+%define		srcname		werken-xpath
 Summary:	W3C XPath-Rec implementation for DOM4J
 Name:		java-werken-xpath
 Version:	0.9.5
@@ -56,6 +56,14 @@ required_jars="antlr junit xerces-j2"
 CLASSPATH=$(build-classpath $required_jars):lib/dom4j.jar
 
 %ant -Dbuild.sysclasspath=only
+
+# provide dom4j with werken.xpath.jar
+mkdir tmp
+cd tmp
+jar xf ../lib/dom4j.jar
+rm -rf MET-INF
+jar uf ../build/werken.xpath.jar .
+cd ..
 
 cd src
 %if %{with source}
