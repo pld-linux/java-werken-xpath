@@ -5,7 +5,6 @@
 %bcond_without	source		# don't build source jar
 %bcond_without	tests		# don't build and run tests
 
-%include	/usr/lib/rpm/macros.java
 
 %define		srcname		werken-xpath
 Summary:	W3C XPath-Rec implementation for DOM4J
