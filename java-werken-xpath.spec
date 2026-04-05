@@ -5,6 +5,8 @@
 %bcond_without	source		# don't build source jar
 %bcond_without	tests		# don't build and run tests
 
+%{?use_default_jdk:%use_default_jdk 8}
+
 
 %define		srcname		werken-xpath
 Summary:	W3C XPath-Rec implementation for DOM4J
@@ -18,8 +20,9 @@ Source0:	http://mesh.dl.sourceforge.net/project/werken-xpath/werken.xpath/0.9.5/
 URL:		http://werken-xpath.sourceforge.net
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.555
+BuildRequires:	rpmbuild(macros) >= 1.556
 BuildRequires:	sed >= 4.0
+%buildrequires_jdk
 Requires:	jpackage-utils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
